@@ -11,7 +11,7 @@ use Calendar::Indonesia::Holiday qw(list_id_holidays);
 use Exporter::Lite;
 our @EXPORT_OK = qw(gen_id_mon_calendar);
 
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 # Translations to Indonesian
 my %translations = (
@@ -135,7 +135,7 @@ App::HTMLCalendarMonth::Indonesia - Generate Indonesian monthly HTML calendar
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -146,6 +146,48 @@ version 0.01
 =head1 FUNCTIONS
 
 None are exported, but they are exportable.
+
+=head2 gen_id_mon_calendar(%args) -> [STATUS_CODE, ERR_MSG, RESULT]
+
+
+Generate Indonesian monthly HTML calendar.
+
+This function uses HTML::CalendarMonth and Calendar::Indonesian::Holiday to
+generate monthly HTML calendar, with Indonesian holidays marked as CSS class
+(classes: sunday, holiday), and holiday names in TITLE attributes.
+
+Returns a 3-element arrayref. STATUS_CODE is 200 on success, or an error code
+between 3xx-5xx (just like in HTTP). ERR_MSG is a string containing error
+message, RESULT is the actual result.
+
+Arguments (C<*> denotes required arguments):
+
+=over 4
+
+=item * B<year> => I<int>
+
+Defaults to current year if not specified
+
+=item * B<holidays> => I<array>
+
+If specified, use this list of holidays.
+
+If not specified, list of holidays is retrieved from
+Calendar::Indonesia::Holiday.
+
+Should be a list of YYYY-MM-DD date strings
+
+=item * B<month> => I<int>
+
+Defaults to current month if not specified
+
+=item * B<postprocess> => I<code>
+
+If supplied, code will get HTML::Calendar object.
+
+Can be used to customize the output further.
+
+=back
 
 =head1 AUTHOR
 

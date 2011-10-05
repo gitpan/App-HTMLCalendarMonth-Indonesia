@@ -23,4 +23,4 @@ requires:
 resources:
   homepage: http://search.cpan.org/dist/App-HTMLCalendarMonth-Indonesia/
   repository: http://github.com/sharyanto/perl-App-HTMLCalendarMonth-Indonesia
-version: 0.01
+version: 0.02
