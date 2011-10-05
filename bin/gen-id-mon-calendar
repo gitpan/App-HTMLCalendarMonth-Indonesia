@@ -1,0 +1,57 @@
+#!/usr/bin/perl
+
+# workaround for dzil
+package gen_id_mon_calendar;
+
+our $VERSION = '0.01'; # VERSION
+
+use 5.010;
+use strict;
+use warnings;
+
+use Sub::Spec::CmdLine qw(run);
+
+run(module => 'App::HTMLCalendarMonth::Indonesia', sub=>'gen_id_mon_calendar');
+
+1;
+# ABSTRACT: Generate Indonesian monthly calendar
+
+
+=pod
+
+=head1 NAME
+
+gen_id_mon_calendar - Generate Indonesian monthly calendar
+
+=head1 VERSION
+
+version 0.01
+
+=head1 SYNOPSIS
+
+ $ ( echo '<style>td.holiday, td.sunday {color: red}</style>';
+     gen-id-mon-calendar --year 2011 --month 10 ) > 2010-10.html
+
+=head1 DESCRIPTION
+
+See L<App::HTMLCalendarMonth::Indonesia> for more details, including available
+options.
+
+=head1 SEE ALSO
+
+=head1 AUTHOR
+
+Steven Haryanto <stevenharyanto@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Steven Haryanto.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
+
+
+__END__
+

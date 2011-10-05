@@ -1,0 +1,13 @@
+Build.PL
+Changes
+LICENSE
+MANIFEST
+MANIFEST.SKIP
+META.yml
+README
+bin/gen-id-mon-calendar
+dist.ini
+lib/App/HTMLCalendarMonth/Indonesia.pm
+t/00-compile.t
+t/release-pod-coverage.t
+t/release-pod-syntax.t
