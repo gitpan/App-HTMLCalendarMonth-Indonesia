@@ -17,7 +17,7 @@ my %module_build_args = (
     'Steven Haryanto <stevenharyanto@gmail.com>'
   ],
   'dist_name' => 'App-HTMLCalendarMonth-Indonesia',
-  'dist_version' => '0.02',
+  'dist_version' => '0.03',
   'license' => 'perl',
   'module_name' => 'App::HTMLCalendarMonth::Indonesia',
   'recommends' => {},
@@ -27,6 +27,7 @@ my %module_build_args = (
     'DateTime' => '0',
     'Exporter::Lite' => '0',
     'HTML::CalendarMonth' => '0',
+    'Sub::Spec::CmdLine' => '0',
     'Test::More' => '0.96',
     'perl' => '5.010000'
   },

@@ -11,7 +11,7 @@ use Calendar::Indonesia::Holiday qw(list_id_holidays);
 use Exporter::Lite;
 our @EXPORT_OK = qw(gen_id_mon_calendar);
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 # Translations to Indonesian
 my %translations = (
@@ -135,7 +135,7 @@ App::HTMLCalendarMonth::Indonesia - Generate Indonesian monthly HTML calendar
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 

@@ -18,9 +18,10 @@ requires:
   DateTime: 0
   Exporter::Lite: 0
   HTML::CalendarMonth: 0
+  Sub::Spec::CmdLine: 0
   Test::More: 0.96
   perl: 5.010000
 resources:
   homepage: http://search.cpan.org/dist/App-HTMLCalendarMonth-Indonesia/
   repository: http://github.com/sharyanto/perl-App-HTMLCalendarMonth-Indonesia
-version: 0.02
+version: 0.03
