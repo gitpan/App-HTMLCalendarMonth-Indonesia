@@ -11,7 +11,7 @@ use Calendar::Indonesia::Holiday qw(list_id_holidays);
 use Exporter::Lite;
 our @EXPORT_OK = qw(gen_id_mon_calendar);
 
-our $VERSION = '0.03'; # VERSION
+our $VERSION = '0.04'; # VERSION
 
 # Translations to Indonesian
 my %translations = (
@@ -127,6 +127,7 @@ sub gen_id_mon_calendar {
 #ABSTRACT: Generate Indonesian monthly HTML calendar
 
 
+__END__
 =pod
 
 =head1 NAME
@@ -135,7 +136,7 @@ App::HTMLCalendarMonth::Indonesia - Generate Indonesian monthly HTML calendar
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
@@ -147,8 +148,10 @@ version 0.03
 
 None are exported, but they are exportable.
 
-=head2 gen_id_mon_calendar(%args) -> [STATUS_CODE, ERR_MSG, RESULT]
+=head1 FUNCTIONS
 
+
+=head2 gen_id_mon_calendar(%args) -> [status, msg, result, meta]
 
 Generate Indonesian monthly HTML calendar.
 
@@ -156,17 +159,9 @@ This function uses HTML::CalendarMonth and Calendar::Indonesian::Holiday to
 generate monthly HTML calendar, with Indonesian holidays marked as CSS class
 (classes: sunday, holiday), and holiday names in TITLE attributes.
 
-Returns a 3-element arrayref. STATUS_CODE is 200 on success, or an error code
-between 3xx-5xx (just like in HTTP). ERR_MSG is a string containing error
-message, RESULT is the actual result.
-
-Arguments (C<*> denotes required arguments):
+Arguments ('*' denotes required arguments):
 
 =over 4
-
-=item * B<year> => I<int>
-
-Defaults to current year if not specified
 
 =item * B<holidays> => I<array>
 
@@ -187,7 +182,15 @@ If supplied, code will get HTML::Calendar object.
 
 Can be used to customize the output further.
 
+=item * B<year> => I<int>
+
+Defaults to current year if not specified
+
 =back
+
+Return value:
+
+Returns an enveloped result (an array). First element (status) is an integer containing HTTP status code (200 means OK, 4xx caller error, 5xx function error). Second element (msg) is a string containing error message, or 'OK' if status is 200. Third element (result) is optional, the actual result. Fourth element (meta) is called result metadata and is optional, a hash that contains extra information.
 
 =head1 AUTHOR
 
@@ -195,13 +198,10 @@ Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Steven Haryanto.
+This software is copyright (c) 2012 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
 

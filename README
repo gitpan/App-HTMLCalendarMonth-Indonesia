@@ -3,7 +3,7 @@ NAME
     calendar
 
 VERSION
-    version 0.03
+    version 0.04
 
 SYNOPSIS
      # See gen-id-mon-calendar script for command-line usage
@@ -12,7 +12,8 @@ DESCRIPTION
 FUNCTIONS
     None are exported, but they are exportable.
 
-  gen_id_mon_calendar(%args) -> [STATUS_CODE, ERR_MSG, RESULT]
+FUNCTIONS
+  gen_id_mon_calendar(%args) -> [status, msg, result, meta]
     Generate Indonesian monthly HTML calendar.
 
     This function uses HTML::CalendarMonth and Calendar::Indonesian::Holiday
@@ -20,15 +21,7 @@ FUNCTIONS
     CSS class (classes: sunday, holiday), and holiday names in TITLE
     attributes.
 
-    Returns a 3-element arrayref. STATUS_CODE is 200 on success, or an error
-    code between 3xx-5xx (just like in HTTP). ERR_MSG is a string containing
-    error message, RESULT is the actual result.
-
-    Arguments ("*" denotes required arguments):
-
-    *   year => *int*
-
-        Defaults to current year if not specified
+    Arguments ('*' denotes required arguments):
 
     *   holidays => *array*
 
@@ -49,11 +42,24 @@ FUNCTIONS
 
         Can be used to customize the output further.
 
+    *   year => *int*
+
+        Defaults to current year if not specified
+
+    Return value:
+
+    Returns an enveloped result (an array). First element (status) is an
+    integer containing HTTP status code (200 means OK, 4xx caller error, 5xx
+    function error). Second element (msg) is a string containing error
+    message, or 'OK' if status is 200. Third element (result) is optional,
+    the actual result. Fourth element (meta) is called result metadata and
+    is optional, a hash that contains extra information.
+
 AUTHOR
     Steven Haryanto <stevenharyanto@gmail.com>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2011 by Steven Haryanto.
+    This software is copyright (c) 2012 by Steven Haryanto.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.

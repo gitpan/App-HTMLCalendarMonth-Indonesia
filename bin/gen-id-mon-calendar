@@ -3,20 +3,22 @@
 # workaround for dzil
 package gen_id_mon_calendar;
 
-our $VERSION = '0.03'; # VERSION
+our $VERSION = '0.04'; # VERSION
 
 use 5.010;
 use strict;
 use warnings;
 
-use Sub::Spec::CmdLine qw(run);
+use Perinci::CmdLine;
 
-run(module => 'App::HTMLCalendarMonth::Indonesia', sub=>'gen_id_mon_calendar');
+Perinci::CmdLine->new(
+    url => '/App/HTMLCalendarMonth/Indonesia/gen_id_mon_calendar')->run;
 
 1;
 # ABSTRACT: Generate Indonesian monthly calendar
 
 
+__END__
 =pod
 
 =head1 NAME
@@ -25,12 +27,12 @@ gen_id_mon_calendar - Generate Indonesian monthly calendar
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
  $ ( echo '<style>td.holiday, td.sunday {color: red}</style>';
-     gen-id-mon-calendar --year 2011 --month 10 ) > 2010-10.html
+     gen-id-mon-calendar --year 2011 --month 10 ) > 2011-10.html
 
 =head1 DESCRIPTION
 
@@ -45,13 +47,10 @@ Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Steven Haryanto.
+This software is copyright (c) 2012 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
 
