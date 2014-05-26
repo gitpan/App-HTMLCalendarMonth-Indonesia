@@ -1,17 +1,19 @@
 package App::HTMLCalendarMonth::Indonesia;
 
-use 5.010;
+use 5.010001;
 use strict;
 use warnings;
+use experimental 'smartmatch';
 
 use DateTime;
 use HTML::CalendarMonth;
 use Calendar::Indonesia::Holiday qw(list_id_holidays);
+use Perinci::Sub::Util qw(err);
 
 use Exporter::Lite;
 our @EXPORT_OK = qw(gen_id_mon_calendar);
 
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 # Translations to Indonesian
 my %translations = (
@@ -95,7 +97,7 @@ sub gen_id_mon_calendar {
     if (!$holidays) {
         my $res = list_id_holidays(year=>$year, month=>$month,
                                    is_joint_leave=>0);
-        return [500, "Can't get list of holidays: $res->[0] - $res->[1]"]
+        return err(500, "Can't get list of holidays", $res)
             unless $res->[0] == 200;
         $holidays = $res->[2];
     }
@@ -126,9 +128,11 @@ sub gen_id_mon_calendar {
 1;
 #ABSTRACT: Generate Indonesian monthly HTML calendar
 
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -136,7 +140,7 @@ App::HTMLCalendarMonth::Indonesia - Generate Indonesian monthly HTML calendar
 
 =head1 VERSION
 
-version 0.04
+This document describes version 0.05 of App::HTMLCalendarMonth::Indonesia (from Perl distribution App-HTMLCalendarMonth-Indonesia), released on 2014-05-26.
 
 =head1 SYNOPSIS
 
@@ -147,8 +151,6 @@ version 0.04
 =head1 FUNCTIONS
 
 None are exported, but they are exportable.
-
-=head1 FUNCTIONS
 
 
 =head2 gen_id_mon_calendar(%args) -> [status, msg, result, meta]
@@ -190,7 +192,30 @@ Defaults to current year if not specified
 
 Return value:
 
-Returns an enveloped result (an array). First element (status) is an integer containing HTTP status code (200 means OK, 4xx caller error, 5xx function error). Second element (msg) is a string containing error message, or 'OK' if status is 200. Third element (result) is optional, the actual result. Fourth element (meta) is called result metadata and is optional, a hash that contains extra information.
+Returns an enveloped result (an array).
+
+First element (status) is an integer containing HTTP status code
+(200 means OK, 4xx caller error, 5xx function error). Second element
+(msg) is a string containing error message, or 'OK' if status is
+200. Third element (result) is optional, the actual result. Fourth
+element (meta) is called result metadata and is optional, a hash
+that contains extra information.
+
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/App-HTMLCalendarMonth-Indonesia>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-App-HTMLCalendarMonth-Indonesia>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website L<https://rt.cpan.org/Public/Dist/Display.html?Name=App-HTMLCalendarMonth-Indonesia>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
 
 =head1 AUTHOR
 
@@ -198,10 +223,9 @@ Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Steven Haryanto.
+This software is copyright (c) 2014 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

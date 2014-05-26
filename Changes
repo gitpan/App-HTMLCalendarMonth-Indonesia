@@ -1,20 +1,28 @@
-Revision history for App-HTMLCalendarMonth-Indonesia.
+Revision history for App-HTMLCalendarMonth-Indonesia
 
-0.04    2012-03-23
+0.05    2014-05-26 (SHARYANTO)
 
-        No functional changes. Replace Sub::Spec::CmdLine with Perinci::CmdLine.
+        - No functional changes.
 
-
-0.03    2011-10-25
-
-        No functional changes. Add missing dep [ct].
+        - App 'use experimental smartmatch' for perl 5.18+.
 
 
-0.02    2011-10-05
+0.04    2012-03-23 (SHARYANTO)
 
-        No functional changes. Build fix (forgot weaver.ini).
+        - No functional changes. Replace Sub::Spec::CmdLine with
+          Perinci::CmdLine.
 
 
-0.01    2011-10-05
+0.03    2011-10-25 (SHARYANTO)
 
-        First release.
+        - No functional changes. Add missing dep [CT].
+
+
+0.02    2011-10-05 (SHARYANTO)
+
+        - No functional changes. Build fix (forgot weaver.ini).
+
+
+0.01    2011-10-05 (SHARYANTO)
+
+        - First release.

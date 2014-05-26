@@ -3,7 +3,7 @@
 # workaround for dzil
 package gen_id_mon_calendar;
 
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 use 5.010;
 use strict;
@@ -17,9 +17,11 @@ Perinci::CmdLine->new(
 1;
 # ABSTRACT: Generate Indonesian monthly calendar
 
-
 __END__
+
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -27,7 +29,7 @@ gen_id_mon_calendar - Generate Indonesian monthly calendar
 
 =head1 VERSION
 
-version 0.04
+This document describes version 0.05 of gen_id_mon_calendar (from Perl distribution App-HTMLCalendarMonth-Indonesia), released on 2014-05-26.
 
 =head1 SYNOPSIS
 
@@ -41,16 +43,31 @@ options.
 
 =head1 SEE ALSO
 
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/App-HTMLCalendarMonth-Indonesia>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-App-HTMLCalendarMonth-Indonesia>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website L<https://rt.cpan.org/Public/Dist/Display.html?Name=App-HTMLCalendarMonth-Indonesia>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
 =head1 AUTHOR
 
 Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Steven Haryanto.
+This software is copyright (c) 2014 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
